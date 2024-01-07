@@ -82,7 +82,7 @@ public class LoanCalc {
 			endBalance = loan;
 		}
 		for (int i=0 ; i<n; i++){
-			endBalance = (loan-payment)*(1+rate);
+			endBalance = (loan-payment)*(1+(rate/100));
 			loan = endBalance;
 		}
 		return endBalance;
