@@ -32,6 +32,8 @@ public class Calendar0 {
 
 	// Returns true if the given year is a leap year, false otherwise.
 	public static boolean isLeapYear(int year) {
+		// #feedback - this function can become one line (without any variables) -
+		// return ((year % 400) == 0) || (((year % 4) == 0) && ((year % 100) != 0))
 		boolean isLeapYear;
 		isLeapYear = ((year % 400) == 0);
 		isLeapYear = isLeapYear || (((year % 4) == 0) && ((year % 100) != 0));
@@ -43,7 +45,7 @@ public class Calendar0 {
 	// February has 28 days in a common year, and 29 days in a leap year.
 	// All the other months have 31 days.
 	public static int nDaysInMonth(int month, int year) {
-		int nDaysInMonth = 0;
+		int nDaysInMonth = 0; // #feedback - this can indicate that the function can return a 0. It is better to have a default case here with a real answer (for example 31 days).
 		if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
 			nDaysInMonth = 31;
 		} else if (month == 4 || month == 6 || month == 9 || month == 11) {

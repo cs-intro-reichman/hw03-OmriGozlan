@@ -40,11 +40,11 @@ public class LoanCalc {
 	// Side effect: modifies the class variable iterationCounter.
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {  
     	double g = loan/n;
-		iterationCounter = 0;
-		while (endBalance(loan,rate,n,g) > 0) {
-			g += epsilon;
-			iterationCounter++;
-		}
+	iterationCounter = 0; // #feedback - note the indentation here.
+	while (endBalance(loan,rate,n,g) > 0) {
+		g += epsilon;
+		iterationCounter++;
+	}
     	return g;
     }
     
@@ -57,19 +57,19 @@ public class LoanCalc {
 	// Side effect: modifies the class variable iterationCounter.
     public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
     	double L = loan/n;
-		double H = loan;
-		double g = (L+H)/2;
-		iterationCounter = 0;
-		while ((H-L) > epsilon){
-			if((endBalance(loan,rate,n,g))*(endBalance(loan,rate,n,L)) > 0){
-				L= (L+H)/2;
-			} else {
-				H= (L+H)/2;
-			}
-			g= (L+H)/2;
-			iterationCounter++;
+	double H = loan;
+	double g = (L+H)/2;
+	iterationCounter = 0;
+	while ((H-L) > epsilon){
+		if((endBalance(loan,rate,n,g))*(endBalance(loan,rate,n,L)) > 0){
+			L= (L+H)/2; // #feedback - you can write L=g instead of calculating it agsin(since g=(L+H)/2)
+		} else {
+			H= (L+H)/2;
 		}
-		return g;
+		g= (L+H)/2;
+		iterationCounter++;
+	}
+	return g;
     }
 	
 	/**
