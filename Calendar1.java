@@ -61,8 +61,8 @@ public class Calendar1 {
 				month =1;
 				year++;
 				nDaysInMonth = nDaysInMonth(month,year);
-			}else{
-				nDaysInMonth = nDaysInMonth(month,year);
+			}else{ // #feedback - this else can be removed by moving "nDaysInMonth = nDaysInMonth(month,year);" to after the "if".
+				nDaysInMonth = nDaysInMonth(month,year); 
 			}
 		}
 
